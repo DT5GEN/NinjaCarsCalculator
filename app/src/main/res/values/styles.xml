@@ -1,0 +1,27 @@
+<resources>
+
+    <style name="Widget.Theme.NinjaCars.ButtonBar.Fullscreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/secondary_text</item>
+
+
+    </style>
+
+
+
+        <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+            <!-- Customize your theme here. -->
+            <item name="colorPrimary">@color/colorPrimary</item>
+            <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+            <item name="colorAccent">@color/colorAccent</item>
+        </style>
+        <color name="colorPrimary">#DB5248</color>
+    <color name="colorOnSurface">#DB5248</color>
+    <color name="colorPrimaryDark">#2FDF10</color>
+    <color name="colorAccent">#F7BA01</color>
+    <color name="secondary_text">#FF1100</color>
+</resources>
