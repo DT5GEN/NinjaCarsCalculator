@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="Widget.Theme.NinjaCars.ButtonBar.Fullscreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Widget.Theme.NinjaCarsCalculator.ButtonBar.Fullscreen" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
         <item name="colorPrimary">@color/colorPrimary</item>

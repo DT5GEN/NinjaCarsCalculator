@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.ninjacars.ninjacarsapp.ui.home.HomeFragment"
+        android:name="com.example.ninjacarscalculator.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.ninjacars.ninjacarsapp.ui.main.MainFragment"
+        android:name="com.example.ninjacarscalculator.ui.main.MainFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_main" >
         <action
@@ -36,7 +36,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.ninjacars.ninjacarsapp.ui.history.NotificationsFragment"
+        android:name="com.example.ninjacarscalculator.ui.history.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" >
         <action
@@ -51,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.ninjacars.ninjacarsapp.ui.settings.SettingsFragment"
+        android:name="com.example.ninjacarscalculator.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" >
         <action
@@ -69,7 +69,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.ninjacars.ninjacarsapp.ui.login.LoginFragment"
+        android:name="com.example.ninjacarscalculator.ui.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -78,7 +78,7 @@
     </fragment>
     <fragment
         android:id="@+id/enterCodeFragment"
-        android:name="com.ninjacars.ninjacarsapp.ui.login.EnterCodeFragment"
+        android:name="com.example.ninjacarscalculator.ui.login.EnterCodeFragment"
         android:label="fragment_enter_code"
         tools:layout="@layout/fragment_enter_code" >
         <action
@@ -93,7 +93,7 @@
     </fragment>
     <fragment
         android:id="@+id/advancedSettingsFragment"
-        android:name="com.ninjacars.ninjacarsapp.ui.advancedsettings.AdvancedSettingsFragment"
+        android:name="com.example.ninjacarscalculator.ui.advancedsettings.AdvancedSettingsFragment"
         android:label="fragment_advanced_settings"
         tools:layout="@layout/fragment_advanced_settings" >
         <action
@@ -105,6 +105,6 @@
     </fragment>
     <fragment
         android:id="@+id/carInfoFragment"
-        android:name="com.ninjacars.ninjacarsapp.ui.carinfo.CarInfoFragment"
+        android:name="com.example.ninjacarscalculator.ui.carinfo.CarInfoFragment"
         android:label="CarInfoFragment" />
 </navigation>

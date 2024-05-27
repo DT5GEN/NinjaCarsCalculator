@@ -1,7 +1,7 @@
 package com.example.ninjacarscalculator.calculations
 
 import android.util.Log
-import androidx.paging.LOGGER
+//import androidx.paging.LOGGER
 import com.example.ninjacarscalculator.database.AllParametrs
 import java.text.SimpleDateFormat
 import java.util.Date
