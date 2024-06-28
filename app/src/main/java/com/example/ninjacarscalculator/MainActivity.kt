@@ -1,8 +1,9 @@
 package com.example.ninjacarscalculator
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import com.example.ninjacarscalculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

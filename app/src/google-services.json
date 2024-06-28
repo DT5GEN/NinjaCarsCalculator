@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "997704440585",
+    "firebase_url": "https://ninjacarshelper-default-rtdb.firebaseio.com",
+    "project_id": "ninjacarshelper",
+    "storage_bucket": "ninjacarshelper.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997704440585:android:68de3f3aa84720eb9d91d8",
+        "android_client_info": {
+          "package_name": "com.example.ninjacarscalculator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTSwF-2ooJjjASRzyMs98RWL1yasLmhpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997704440585:android:8315b357f52e919d9d91d8",
+        "android_client_info": {
+          "package_name": "com.ninjacars.ninjacarsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTSwF-2ooJjjASRzyMs98RWL1yasLmhpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
