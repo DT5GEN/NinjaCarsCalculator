@@ -1,19 +1,16 @@
 package com.example.ninjacarscalculator.ui.login
 
 import android.content.Context
-import android.graphics.Typeface
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Bundle
-import android.util.Log
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.FirebaseException
@@ -24,6 +21,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import com.example.ninjacarscalculator.MainActivity
 import com.example.ninjacarscalculator.R
 import com.example.ninjacarscalculator.databinding.FragmentLoginBinding
+import com.google.android.material.textfield.TextInputEditText
 import java.util.concurrent.TimeUnit
 
 lateinit var mAuth: FirebaseAuth
@@ -34,14 +32,13 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

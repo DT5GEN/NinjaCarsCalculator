@@ -47,6 +47,7 @@ dependencies {
     implementation ("androidx.room:room-runtime:2.6.1")
     implementation ("androidx.room:room-ktx:2.6.1")
     implementation("com.google.firebase:firebase-database:21.0.0")
+    implementation("com.google.firebase:firebase-auth-ktx:21.1.0")
     ksp ("androidx.room:room-compiler:2.6.1")
     implementation ("androidx.room:room-rxjava2:2.6.1")
 
