@@ -24,7 +24,7 @@
             android:imeOptions="actionGo"
             android:singleLine="true"
             android:maxLength="20"
-            android:hint="Введите название авто" />
+            android:hint="@string/enter_car_name" />
 
 
     </com.google.android.material.textfield.TextInputLayout>

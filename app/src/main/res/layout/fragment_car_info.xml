@@ -65,7 +65,7 @@
             android:background="@drawable/bg"
             android:textSize="12sp"
             android:gravity="center_vertical"
-            android:hint="Название авто"
+            android:hint="@string/car_name"
             android:paddingStart="16dp"
             android:textColor="@color/black"
             />

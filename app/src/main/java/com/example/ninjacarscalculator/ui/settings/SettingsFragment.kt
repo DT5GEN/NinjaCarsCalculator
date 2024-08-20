@@ -1,5 +1,6 @@
 package com.example.ninjacarscalculator.ui.settings
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -54,6 +55,7 @@ class SettingsFragment : Fragment() {
     }
 
 
+    @SuppressLint("SuspiciousIndentation", "ShowToast", "SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
        viewModel =
@@ -139,9 +141,9 @@ class SettingsFragment : Fragment() {
                 viewModel.echangeRates.onEach {exchangeRates->
                     if(exchangeRates?.Valute?.EUR?.Value!=null) {
                         with(binding) {
-                            yen.text = "¥ - ${floor(exchangeRates?.Valute?.JPY?.Value?.div(100)!!*100)/100}"
-                            usd.text = "$ - ${floor(exchangeRates?.Valute?.USD?.Value!!*100)/100}"
-                            euro.text = "Э - ${floor(exchangeRates?.Valute?.EUR?.Value!!*100)/100}"
+                            yen.text = "¥ - ${floor(exchangeRates.Valute.JPY.Value.div(100) *100)/100}"
+                            usd.text = "$ - ${floor(exchangeRates.Valute.USD.Value *100)/100}"
+                            euro.text = "Э - ${floor(exchangeRates.Valute.EUR.Value *100)/100}"
                         }
                     }
 
@@ -361,6 +363,7 @@ binding.save.setOnClickListener {
         alertDialog.show()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun editTextPicker(t1: String, t2: String, curs1: Double, curs2: Double, curs3: Double,  ) {
         val d = AlertDialog.Builder(context)
         val inflater = this.layoutInflater

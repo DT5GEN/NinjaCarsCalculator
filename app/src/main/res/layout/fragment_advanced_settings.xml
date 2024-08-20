@@ -43,7 +43,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Затраты в России"
+                android:hint="@string/spent_russian"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/rusMoney"
@@ -82,7 +82,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Затраты в Японии"
+                android:hint="@string/spent_japan"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                    android:id="@+id/japan_money"
@@ -121,7 +121,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Фрахт до Владивостока"
+                android:hint="@string/frakht_vl"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                    android:id="@+id/freight"
@@ -160,7 +160,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="FOB  (Расходы по Японии)"
+                android:hint="@string/fob"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                    android:id="@+id/fob"
@@ -199,7 +199,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Ставка менее чем за час"
+                android:hint="@string/late_bid"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/fastBid"
@@ -238,7 +238,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Перегрузка на др. стоянку"
+                android:hint="@string/remove_parking_lot"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/transfertCar"
@@ -277,7 +277,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Покупка через переговоры"
+                android:hint="@string/trade_bla_bla"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nego"
@@ -316,7 +316,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Единичный заказ (новый клиент)"
+                android:hint="@string/single_buyer"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                   android:id="@+id/newCustomer"
@@ -356,7 +356,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Утилизационный сбор"
+                android:hint="@string/utilization"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/util"
@@ -395,7 +395,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Таможенное оформление"
+                android:hint="@string/customs_payment"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/customsClearance"
@@ -512,7 +512,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Лаборатария + стоянка"
+                android:hint="@string/lab_parking"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/lab"
@@ -551,7 +551,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Перегон до ТК"
+                android:hint="@string/reparking"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/transfertTK"
@@ -590,7 +590,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Услуги брокера"
+                android:hint="@string/brokers_payment"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/broker"
@@ -668,7 +668,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Временная регистрация"
+                android:hint="@string/temp_reg"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/registr"
@@ -707,7 +707,7 @@
                 android:textColorHint="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint=" комиссия за подбор авто"
+                android:hint="@string/comission"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/myFee"

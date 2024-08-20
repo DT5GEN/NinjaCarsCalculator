@@ -40,7 +40,7 @@
         android:text="курс ЦБ"
         android:layout_margin="16dp"
         android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="18sp"
         />
 <ImageView
     android:id="@+id/update"

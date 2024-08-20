@@ -74,7 +74,7 @@
     android:layout_width="wrap_content"
 
     android:layout_height="wrap_content"
-    android:hint="Дата производства"
+    android:hint="@string/date_manufact"
     android:textColorHint="@color/black"
     >
                 <com.google.android.material.textfield.TextInputEditText
@@ -109,7 +109,7 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Объем двигателя"
+                    android:hint="@string/engine_volume"
                     android:textColorHint="@color/black"
                     >
                 <com.google.android.material.textfield.TextInputEditText
@@ -148,7 +148,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="цена покупки на аукционе"
+                android:hint="@string/prise_auc"
                 android:textColorHint="@color/black"
                 >
             <com.google.android.material.textfield.TextInputEditText
