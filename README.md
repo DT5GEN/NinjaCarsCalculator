@@ -40,7 +40,8 @@ This application helps users calculate the total cost of purchasing a car at auc
 
 ## Screenshots
 
-(Add screenshots of the app here)
+![Заставка приложения](scr1.jpg)       ![Основной экран приложения](scr2.jpg)      ![Часть экрана настроек приложения](scr3.jpg)
+
 
 ---
 
