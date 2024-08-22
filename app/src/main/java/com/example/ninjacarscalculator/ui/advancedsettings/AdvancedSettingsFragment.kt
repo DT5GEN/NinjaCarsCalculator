@@ -5,9 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,31 +13,35 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.example.ninjacarscalculator.R
 import com.example.ninjacarscalculator.calculations.CalcClass
 import com.example.ninjacarscalculator.database.AllParametrs
 import com.example.ninjacarscalculator.databinding.FragmentAdvancedSettingsBinding
 import com.example.ninjacarscalculator.ui.login.AppTextWatcher
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-//доп настройки
+
+    //доп настройки
 class AdvancedSettingsFragment : Fragment() {
     private var _binding: FragmentAdvancedSettingsBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: AdvancedSettingsViewModel
-   // lateinit var params: AllParametrs
-    var FOB2 =0
+
+    // lateinit var params: AllParametrs
+    var FOB2 = 0
     private val USER_ACCEPTED_SAVED = "saved"
     private val USER_ACCEPTED_MON = "mon"
     private lateinit var prefs: SharedPreferences
     private val PREFERENCES_COUNTER_NAME = "settings"
     private val USER_ACCEPTED_NAME = "name"
     private val USER_ACCEPTED_NUMB = "numb"
-   var params: AllParametrs = CalcClass().defoarams()
+    var params: AllParametrs = CalcClass().defoarams()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -51,7 +53,10 @@ class AdvancedSettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel =
-            ViewModelProvider(this, ViewModelFactoryAS(requireActivity()))[AdvancedSettingsViewModel::class.java]
+            ViewModelProvider(
+                this,
+                ViewModelFactoryAS(requireActivity())
+            )[AdvancedSettingsViewModel::class.java]
         prefs =
             requireContext().getSharedPreferences(PREFERENCES_COUNTER_NAME, Context.MODE_PRIVATE)
         val editor = prefs.edit()
@@ -60,7 +65,7 @@ class AdvancedSettingsFragment : Fragment() {
         val toast = Toast.makeText(requireContext(), text, duration)
         val firstName = prefs.getString(USER_ACCEPTED_NAME, "User")
         val firstNumb = prefs.getString(USER_ACCEPTED_NUMB, "Numb")
-        var name =""
+        var name = ""
         val saved = prefs.getString(USER_ACCEPTED_SAVED, "false")
         var numb = ""
         if (firstName == "User") {
@@ -72,7 +77,7 @@ class AdvancedSettingsFragment : Fragment() {
 
 
 
-            viewModel.echangeRates.onEach {
+        viewModel.echangeRates.onEach {
 
             if (it != null) {
                 params.euro = "${it.Valute.EUR.Value}".toDouble()
@@ -88,24 +93,24 @@ class AdvancedSettingsFragment : Fragment() {
 
                 params.finalPrice = CalcClass().finalPrice(params)
 
-                    binding.freight.setText("${params.freightVL}")
-                    binding.fob.setText("${params.FOB}")
-                    binding.util.setText("${params.util}")
-                    binding.myFee.setText("${params.myFee}")
-                    binding.registr.setText("${params.registr}")
-                    binding.glonas.setText("${params.glonas}")
-                    binding.broker.setText("${params.broker}")
-                    binding.transfertTK.setText("${params.transfertTK}")
-                    binding.lab.setText("${params.lab}")
-                    binding.svh.setText("${params.svh}")
-                    binding.sbkts.setText("${params.sbkts}")
-                    binding.newCustomer.setText("${params.newCustomer}")
-                    binding.nego.setText("${params.nego}")
-                    binding.transfertCar.setText("${params.transfertCar}")
-                    binding.fastBid.setText("${params.fastBid}")
-                    binding.customsClearance.setText("${params.customsClearance}")
-                    binding.japanMoney.setText("${params.japanMoney}")
-                    binding.rusMoney.setText("${params.rusMoney}")
+                binding.freight.setText("${params.freightVL}")
+                binding.fob.setText("${params.FOB}")
+                binding.util.setText("${params.util}")
+                binding.myFee.setText("${params.myFee}")
+                binding.registr.setText("${params.registr}")
+                binding.glonas.setText("${params.glonas}")
+                binding.broker.setText("${params.broker}")
+                binding.transfertTK.setText("${params.transfertTK}")
+                binding.lab.setText("${params.lab}")
+                binding.svh.setText("${params.svh}")
+                binding.sbkts.setText("${params.sbkts}")
+                binding.newCustomer.setText("${params.newCustomer}")
+                binding.nego.setText("${params.nego}")
+                binding.transfertCar.setText("${params.transfertCar}")
+                binding.fastBid.setText("${params.fastBid}")
+                binding.customsClearance.setText("${params.customsClearance}")
+                binding.japanMoney.setText("${params.japanMoney}")
+                binding.rusMoney.setText("${params.rusMoney}")
 
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
@@ -113,16 +118,24 @@ class AdvancedSettingsFragment : Fragment() {
 
         val animAlpha: Animation = AnimationUtils.loadAnimation(requireContext(), R.anim.alpha)
 
-        binding.util.setOnClickListener { toast.show()
-            binding.util.startAnimation(animAlpha)}
+        binding.util.setOnClickListener {
+            toast.show()
+            binding.util.startAnimation(animAlpha)
+        }
 
-        binding.customsClearance.setOnClickListener { toast.show()
-            binding.customsClearance.startAnimation(animAlpha)}
+        binding.customsClearance.setOnClickListener {
+            toast.show()
+            binding.customsClearance.startAnimation(animAlpha)
+        }
 
-        binding.japanMoney.setOnClickListener { toast.show()
-            binding.japanMoney.startAnimation(animAlpha)}
-        binding.rusMoney.setOnClickListener { toast.show()
-            binding.rusMoney.startAnimation(animAlpha)}
+        binding.japanMoney.setOnClickListener {
+            toast.show()
+            binding.japanMoney.startAnimation(animAlpha)
+        }
+        binding.rusMoney.setOnClickListener {
+            toast.show()
+            binding.rusMoney.startAnimation(animAlpha)
+        }
 
 
 
@@ -378,27 +391,27 @@ class AdvancedSettingsFragment : Fragment() {
         }
 
         binding.save.setOnClickListener {
-                params.freightVL = forEditebleText(binding.freight)
-                params.FOB =forEditebleText(binding.fob)
-                params.fastBid = forEditebleText(binding.fastBid)
-                params.transfertCar = forEditebleText(binding.transfertCar)
-                params.nego = forEditebleText(binding.nego)
-                params.newCustomer = forEditebleText(binding.newCustomer)
-                params.util = forEditebleText(binding.util)
-                params.customsClearance = forEditebleText(binding.customsClearance)
-                params.sbkts = forEditebleText(binding.sbkts)
-                params.svh = forEditebleText(binding.svh)
-                params.lab = forEditebleText(binding.lab)
-                params.transfertTK = forEditebleText(binding.transfertTK)
-                params.broker = forEditebleText(binding.broker)
-                params.glonas = forEditebleText(binding.glonas)
-                params.registr = forEditebleText(binding.registr)
-                params.myFee = forEditebleText(binding.myFee)
+            params.freightVL = forEditebleText(binding.freight)
+            params.FOB = forEditebleText(binding.fob)
+            params.fastBid = forEditebleText(binding.fastBid)
+            params.transfertCar = forEditebleText(binding.transfertCar)
+            params.nego = forEditebleText(binding.nego)
+            params.newCustomer = forEditebleText(binding.newCustomer)
+            params.util = forEditebleText(binding.util)
+            params.customsClearance = forEditebleText(binding.customsClearance)
+            params.sbkts = forEditebleText(binding.sbkts)
+            params.svh = forEditebleText(binding.svh)
+            params.lab = forEditebleText(binding.lab)
+            params.transfertTK = forEditebleText(binding.transfertTK)
+            params.broker = forEditebleText(binding.broker)
+            params.glonas = forEditebleText(binding.glonas)
+            params.registr = forEditebleText(binding.registr)
+            params.myFee = forEditebleText(binding.myFee)
 
 
             params.finalPrice = CalcClass().finalPrice(params)
-          //  binding.fob.setText("${FOB2}")
-            binding.japanMoney.setText("${ params.japanMoney}")
+            //  binding.fob.setText("${FOB2}")
+            binding.japanMoney.setText("${params.japanMoney}")
             binding.rusMoney.setText("${params.rusMoney}")
             viewModel.update(params)
             findNavController().navigate(R.id.action_advancedSettingsFragment_to_navigation_dashboard)
@@ -409,16 +422,14 @@ class AdvancedSettingsFragment : Fragment() {
             i.data = Uri.parse(url)
             startActivity(i)
         }
-
-
     }
 
 
-    private fun forEditebleText (editableText:TextInputEditText):Int{
+    private fun forEditebleText(editableText: TextInputEditText): Int {
         var g = 0
 
-        if (editableText.editableText.toString() !=""){
-           g = editableText.editableText.toString().toInt()
+        if (editableText.editableText.toString() != "") {
+            g = editableText.editableText.toString().toInt()
         }
         return g
     }
@@ -449,7 +460,7 @@ class AdvancedSettingsFragment : Fragment() {
         mEditText.addTextChangedListener(AppTextWatcher {
             string = mEditText.text.toString()
             if (string != "") {
-                if (string.toInt() < min || string.toInt() != 0)  {
+                if (string.toInt() < min || string.toInt() != 0) {
                     mEditText2.error = minText
                     enabled = false
                 }
@@ -478,12 +489,11 @@ class AdvancedSettingsFragment : Fragment() {
         d.setNegativeButton("Отменить") { dialogInterface, i -> }
         val alertDialog = d.create()
         alertDialog.show()
-//return mEditText.editableText.toString()
+    //return mEditText.editableText.toString()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
 }

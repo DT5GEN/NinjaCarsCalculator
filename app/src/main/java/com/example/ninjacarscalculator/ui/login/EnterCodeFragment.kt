@@ -6,21 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.auth.PhoneAuthProvider
 import com.example.ninjacarscalculator.MainActivity
 import com.example.ninjacarscalculator.R
 import com.example.ninjacarscalculator.databinding.FragmentEnterCodeBinding
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import com.google.firebase.auth.PhoneAuthProvider
 
 var ids = ""
+
 class EnterCodeFragment : Fragment() {
-    private lateinit var mPhoneNumber:String
+    private lateinit var mPhoneNumber: String
     private var _binding: FragmentEnterCodeBinding? = null
     private val binding get() = _binding!!
-var name = ""
+    var name = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,18 +44,19 @@ var name = ""
                 enterCode()
             }
         })
-
     }
 
     private fun enterCode() {
         val code = binding.registerInputCode.text.toString()
         val j = PhoneAuthProvider.getCredential(ids, code)
         mAuth.signInWithCredential(j).addOnCompleteListener { task ->
-            if (task.isSuccessful){
+            if (task.isSuccessful) {
                 val fragment = arguments?.getString("fragment").toString()
-                Toast.makeText(requireContext(),
+                Toast.makeText(
+                    requireContext(),
                     "Добро пожаловать",
-                    Toast.LENGTH_SHORT)
+                    Toast.LENGTH_SHORT
+                )
                     .show()
                 val bundle = Bundle()
                 bundle.putString("mPhoneNumber", mPhoneNumber)
@@ -72,16 +71,20 @@ var name = ""
                         R.id.action_enterCodeFragment_to_navigation_dashboard,
                         bundle
                     )
-                } }else {
-                Toast.makeText(requireContext(),
+                }
+            } else {
+                Toast.makeText(
+                    requireContext(),
                     task.exception?.message.toString(),
-                    Toast.LENGTH_SHORT)
+                    Toast.LENGTH_SHORT
+                )
                     .show()
             }
         }
 
 
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -13,7 +13,7 @@ interface Dao {
     fun getAll(): List<AllParametrs>
 
     @Query("SELECT * FROM parametrs WHERE id = :employeeId")
-    suspend fun get(employeeId:String): AllParametrs
+    suspend fun get(employeeId: String): AllParametrs
 
     @Query("SELECT id FROM parametrs")
     suspend fun getOneParamInt(): Int

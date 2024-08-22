@@ -9,6 +9,4 @@ class Repository {
     suspend fun getExchangeRates(): Response<ExchangeRates> {
         return retrofit.exchangeRates()
     }
-
-
 }

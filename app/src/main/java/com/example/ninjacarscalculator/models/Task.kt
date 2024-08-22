@@ -4,16 +4,17 @@ import com.example.ninjacarscalculator.database.AllParametrs
 
 
 data class Task(
- val date:String,
-var nameAuto: String,
-var params : AllParametrs
-){
+    val date: String,
+    var nameAuto: String,
+    var params: AllParametrs
+) {
 
 }
+
 data class Task2(
-    val date:String,
+    val date: String,
     var nameAuto: String,
-    var params : Params
-){
+    var params: Params
+) {
 
 }

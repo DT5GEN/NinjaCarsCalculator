@@ -83,5 +83,4 @@ data class AllParametrs(
     @ColumnInfo(name = "yen")
     var yen: Double,
 ) {
-
 }

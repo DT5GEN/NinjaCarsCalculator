@@ -7,16 +7,14 @@ import com.example.ninjacarscalculator.database.App
 import com.example.ninjacarscalculator.repository.Repository
 
 
-class ViewModelFactoryAS(context: Activity): ViewModelProvider.Factory {
+class ViewModelFactoryAS(context: Activity) : ViewModelProvider.Factory {
 
-    private val repository by lazy(LazyThreadSafetyMode.NONE){
+    private val repository by lazy(LazyThreadSafetyMode.NONE) {
         Repository()
     }
-    private val teamDao by lazy(LazyThreadSafetyMode.NONE){
+    private val teamDao by lazy(LazyThreadSafetyMode.NONE) {
         (context.application as App).db.myteamDao()
     }
-
-
 
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -24,7 +22,4 @@ class ViewModelFactoryAS(context: Activity): ViewModelProvider.Factory {
             repository, teamDao,
         ) as T
     }
-
-
-
 }

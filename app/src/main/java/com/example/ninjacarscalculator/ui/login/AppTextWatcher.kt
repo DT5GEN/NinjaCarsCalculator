@@ -3,7 +3,7 @@ package com.example.ninjacarscalculator.ui.login
 import android.text.Editable
 import android.text.TextWatcher
 
-class AppTextWatcher (val onSuccess: (Editable?) -> Unit) : TextWatcher {
+class AppTextWatcher(val onSuccess: (Editable?) -> Unit) : TextWatcher {
 
     override fun afterTextChanged(s: Editable?) {
         onSuccess(s)

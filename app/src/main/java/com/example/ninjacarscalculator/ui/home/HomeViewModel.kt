@@ -1,16 +1,9 @@
 package com.example.ninjacarscalculator.ui.home
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.room.ColumnInfo
 import com.example.ninjacarscalculator.database.AllParametrs
 import com.example.ninjacarscalculator.database.Dao
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val teamDao: Dao) : ViewModel() {
@@ -40,13 +33,13 @@ class HomeViewModel(private val teamDao: Dao) : ViewModel() {
         util: Int,
         customsClearance: Int,
         sbkts: Int,
-        svh : Int,
-        lab : Int,
+        svh: Int,
+        lab: Int,
         transfertTK: Int,
-        broker : Int,
-        glonas : Int,
-        registr : Int,
-        myFee : Int,
+        broker: Int,
+        glonas: Int,
+        registr: Int,
+        myFee: Int,
         euro: Double,
         usd: Double,
         yen: Double,
@@ -78,21 +71,18 @@ class HomeViewModel(private val teamDao: Dao) : ViewModel() {
                     util,
                     customsClearance,
                     sbkts,
-                    svh ,
+                    svh,
                     lab,
                     transfertTK,
-                    broker ,
-                    glonas ,
-                    registr ,
+                    broker,
+                    glonas,
+                    registr,
                     myFee,
                     euro,
                     usd,
                     yen
-                    )
+                )
             )
-
         }
-
     }
-
 }

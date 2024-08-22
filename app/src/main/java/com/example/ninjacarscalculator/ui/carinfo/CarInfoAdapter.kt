@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ninjacarscalculator.databinding.ItemCarInfoBinding
 
-class CarInfoAdapter (): RecyclerView.Adapter<MenuViewHolder>() {
+class CarInfoAdapter() : RecyclerView.Adapter<MenuViewHolder>() {
     private var data: List<CarInfoModel> = emptyList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         return MenuViewHolder(
@@ -16,19 +16,19 @@ class CarInfoAdapter (): RecyclerView.Adapter<MenuViewHolder>() {
             )
         )
     }
+
     fun setData(data: List<CarInfoModel>) {
         this.data = data
         notifyDataSetChanged()
     }
+
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
-
-
 
 
         val item = data.getOrNull(position)
         with(holder.binding) {
-            count.text = item?.params?:""
-            names.text = item?.name?:""
+            count.text = item?.params ?: ""
+            names.text = item?.name ?: ""
 
         }
     }

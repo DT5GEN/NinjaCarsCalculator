@@ -15,7 +15,7 @@ class MonthYearPickerDialog(val date: Date = Date()) : DialogFragment() {
     var currentDate = sdf.format(Date()).toInt()
 
 
-        private val MAX_YEAR = currentDate
+    private val MAX_YEAR = currentDate
 
 
     private lateinit var binding: DialogMonthYearPickerBinding
@@ -34,14 +34,16 @@ class MonthYearPickerDialog(val date: Date = Date()) : DialogFragment() {
             minValue = 0
             maxValue = 11
             value = cal.get(Calendar.MONTH)
-            displayedValues = arrayOf("Jan","Feb","Mar","Apr","May","June","July",
-                "Aug","Sep","Oct","Nov","Dec")
+            displayedValues = arrayOf(
+                "Jan", "Feb", "Mar", "Apr", "May", "June", "July",
+                "Aug", "Sep", "Oct", "Nov", "Dec"
+            )
         }
 
         binding.pickerYear.run {
             val year = cal.get(Calendar.YEAR)
-            val valueYear = year-3
-            val valueMinYear = year-15
+            val valueYear = year - 3
+            val valueMinYear = year - 15
             minValue = valueMinYear
             maxValue = year
             value = valueYear
@@ -50,7 +52,14 @@ class MonthYearPickerDialog(val date: Date = Date()) : DialogFragment() {
         return AlertDialog.Builder(requireContext())
             .setTitle("Выбери Дату производства")
             .setView(binding.root)
-            .setPositiveButton("Выбрать") { _, _ -> listener?.onDateSet(null, binding.pickerYear.value, binding.pickerMonth.value, 1) }
+            .setPositiveButton("Выбрать") { _, _ ->
+                listener?.onDateSet(
+                    null,
+                    binding.pickerYear.value,
+                    binding.pickerMonth.value,
+                    1
+                )
+            }
             .setNegativeButton("Отменить") { _, _ -> dialog?.cancel() }
             .create()
     }
