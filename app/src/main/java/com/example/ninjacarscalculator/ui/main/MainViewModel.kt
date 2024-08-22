@@ -12,14 +12,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class MainViewModel (
+class MainViewModel(
     private val repository: Repository,
     private val myDao: Dao
-): ViewModel() {
+) : ViewModel() {
     private val _echangeRates = MutableStateFlow<ExchangeRates?>(null)
-    val echangeRates  = _echangeRates .asStateFlow()
+    val echangeRates = _echangeRates.asStateFlow()
     private val _params = MutableStateFlow<List<AllParametrs>>(emptyList())
     val params = _params.asStateFlow()
+
     init {
         loadExchange()
         getAP()
@@ -38,9 +39,6 @@ class MainViewModel (
     }
 
 
-
-
-
     private fun loadExchange(): ExchangeRates? {
         var t: ExchangeRates? = null
         viewModelScope.launch(Dispatchers.IO) {
@@ -48,7 +46,7 @@ class MainViewModel (
                 t = repository.getExchangeRates().body()
             }.fold(
                 onSuccess = { Log.d("loadExchange", "${t?.Valute?.USD?.Value}") },
-                onFailure = { Log.d("loadExchange", it.message?:"") }
+                onFailure = { Log.d("loadExchange", it.message ?: "") }
             )
 
         }
@@ -57,14 +55,12 @@ class MainViewModel (
 
     fun updateParam(params: AllParametrs) {
         viewModelScope.launch(Dispatchers.IO) {
-        kotlin.runCatching {
-            myDao.update(params)
-        }.fold(
-            onSuccess = {Log.d("update", "$params")  },
-            onFailure = { Log.d("update", it.message ?: "") }
-        )
+            kotlin.runCatching {
+                myDao.update(params)
+            }.fold(
+                onSuccess = { Log.d("update", "$params") },
+                onFailure = { Log.d("update", it.message ?: "") }
+            )
+        }
     }
-    }
-
-
 }

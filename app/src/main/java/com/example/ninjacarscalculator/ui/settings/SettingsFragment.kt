@@ -43,7 +43,42 @@ class SettingsFragment : Fragment() {
     private var clicked = false
     private lateinit var prefs: SharedPreferences
     private lateinit var viewModel: SettingsViewModel
- var params: AllParametrs =  AllParametrs( 1,2021,660,730000,60000,60000, 0.0, 0, 0, 0,0.0,20000,0,0, 0, 0,60000, 0,0,0, 0,5200,3100, 20000,30000,5000,0,10000, 0,0,25000,100.0, 90.0,0.6)
+    var params: AllParametrs = AllParametrs(
+        1,
+        2021,
+        660,
+        730000,
+        60000,
+        60000,
+        0.0,
+        0,
+        0,
+        0,
+        0.0,
+        20000,
+        0,
+        0,
+        0,
+        0,
+        60000,
+        0,
+        0,
+        0,
+        0,
+        5200,
+        3100,
+        20000,
+        30000,
+        5000,
+        0,
+        10000,
+        0,
+        0,
+        25000,
+        100.0,
+        90.0,
+        0.6
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,8 +93,11 @@ class SettingsFragment : Fragment() {
     @SuppressLint("SuspiciousIndentation", "ShowToast", "SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       viewModel =
-           ViewModelProvider(this, ViewModelFactoryS(requireActivity()))[SettingsViewModel::class.java]
+        viewModel =
+            ViewModelProvider(
+                this,
+                ViewModelFactoryS(requireActivity())
+            )[SettingsViewModel::class.java]
         mAuth = FirebaseAuth.getInstance()
         prefs =
             requireContext().getSharedPreferences(PREFERENCES_COUNTER_NAME, Context.MODE_PRIVATE)
@@ -75,18 +113,18 @@ class SettingsFragment : Fragment() {
             if (mAuth.currentUser == null) {
                 val bundle = Bundle()
                 bundle.putString("fragment", "settings")
-                findNavController().navigate(R.id.action_settingsFragment_to_loginFragment,bundle)
-            }else {
+                findNavController().navigate(R.id.action_settingsFragment_to_loginFragment, bundle)
+            } else {
                 findNavController().navigate(R.id.action_settingsFragment_to_advancedSettingsFragment)
             }
-            }
+        }
         viewModel.echangeRates.onEach {
 
             if (it != null) {
 
-                params.euro = floor("${it.Valute.EUR.Value}".toDouble()*100)/100
-                params.usd = floor("${it.Valute.USD.Value}".toDouble()*100)/100
-                params.yen = floor("${it.Valute.JPY.Value.div(100)}".toDouble()*100)/100
+                params.euro = floor("${it.Valute.EUR.Value}".toDouble() * 100) / 100
+                params.usd = floor("${it.Valute.USD.Value}".toDouble() * 100) / 100
+                params.yen = floor("${it.Valute.JPY.Value.div(100)}".toDouble() * 100) / 100
             }
 
         }.launchIn(viewLifecycleOwner.lifecycleScope)
@@ -103,12 +141,10 @@ class SettingsFragment : Fragment() {
 
 
 
-                       addServices.setText(params.addServices.toString())
-                       deliveryIty.setText(params.deliveryСity.toString())
-                       buttonComission.setText(params.buttonComission.toString())
-                       banksOmmission.setText(params.banksСommission.toString())
-
-
+                    addServices.setText(params.addServices.toString())
+                    deliveryIty.setText(params.deliveryСity.toString())
+                    buttonComission.setText(params.buttonComission.toString())
+                    banksOmmission.setText(params.banksСommission.toString())
 
 
                 }
@@ -138,19 +174,20 @@ class SettingsFragment : Fragment() {
             if (!clicked) {
                 clicked = true
                 viewModel.loadExchange()
-                viewModel.echangeRates.onEach {exchangeRates->
-                    if(exchangeRates?.Valute?.EUR?.Value!=null) {
+                viewModel.echangeRates.onEach { exchangeRates ->
+                    if (exchangeRates?.Valute?.EUR?.Value != null) {
                         with(binding) {
-                            yen.text = "¥ - ${floor(exchangeRates.Valute.JPY.Value.div(100) *100)/100}"
-                            usd.text = "$ - ${floor(exchangeRates.Valute.USD.Value *100)/100}"
-                            euro.text = "Э - ${floor(exchangeRates.Valute.EUR.Value *100)/100}"
+                            yen.text =
+                                "¥ - ${floor(exchangeRates.Valute.JPY.Value.div(100) * 100) / 100}"
+                            usd.text = "$ - ${floor(exchangeRates.Valute.USD.Value * 100) / 100}"
+                            euro.text = "Э - ${floor(exchangeRates.Valute.EUR.Value * 100) / 100}"
                         }
                     }
 
                 }.launchIn(viewLifecycleOwner.lifecycleScope)
             } else {
 
-                editTextPicker("Введите курсы валют", "",params.yen,params.usd,params.euro, )
+                editTextPicker("Введите курсы валют", "", params.yen, params.usd, params.euro)
 
             }
 
@@ -228,26 +265,26 @@ class SettingsFragment : Fragment() {
             viewModel.update(params)
             findNavController().navigate(R.id.action_settingsFragment_self)
         }
-binding.save.setOnClickListener {
-    if (binding.addServices.editableText.toString()!="") {
-        params.addServices = binding.addServices.editableText.toString().toInt()
-    }
-    if (binding.deliveryIty.editableText.toString()!="") {
-        params.deliveryСity = binding.deliveryIty.editableText.toString().toInt()
-    }
-        if (binding.buttonComission.editableText.toString()!="") {
-            params.buttonComission = binding.buttonComission.editableText.toString().toInt()
-        }
-            if (binding.banksOmmission.editableText.toString()!="") {
+        binding.save.setOnClickListener {
+            if (binding.addServices.editableText.toString() != "") {
+                params.addServices = binding.addServices.editableText.toString().toInt()
+            }
+            if (binding.deliveryIty.editableText.toString() != "") {
+                params.deliveryСity = binding.deliveryIty.editableText.toString().toInt()
+            }
+            if (binding.buttonComission.editableText.toString() != "") {
+                params.buttonComission = binding.buttonComission.editableText.toString().toInt()
+            }
+            if (binding.banksOmmission.editableText.toString() != "") {
                 params.banksСommission = binding.banksOmmission.editableText.toString().toDouble()
             }
 
-    if (binding.fob.editableText.toString()!="") {
-        params.FOB = binding.fob.editableText.toString().toInt()
-    }
-    viewModel.update(params)
-    findNavController().navigate(R.id.action_settingsFragment_to_navigation_dashboard)
-}
+            if (binding.fob.editableText.toString() != "") {
+                params.FOB = binding.fob.editableText.toString().toInt()
+            }
+            viewModel.update(params)
+            findNavController().navigate(R.id.action_settingsFragment_to_navigation_dashboard)
+        }
         binding.sv.setOnClickListener {
             val url = "https://auc.aleado.com/auctions/?p=project/searchform&searchtype=max&s&ld"
             val i = Intent(Intent.ACTION_VIEW)
@@ -265,8 +302,8 @@ binding.save.setOnClickListener {
     }
 
     private fun editTextPickerI(
-        t1: String, t2: String,t3: String, b1: EditText, min: Int,
-        max: Int,minText: String,maxText:String
+        t1: String, t2: String, t3: String, b1: EditText, min: Int,
+        max: Int, minText: String, maxText: String
     ) {
         var string = ""
         val d = AlertDialog.Builder(context)
@@ -283,7 +320,7 @@ binding.save.setOnClickListener {
         mEditText.maxEms = 6
         mEditText.addTextChangedListener(AppTextWatcher {
             string = mEditText.text.toString()
-            if(string !="") {
+            if (string != "") {
                 if (string.toInt() < min || string.toInt() != 0) {
                     mEditText2.error = minText
                     enabled = false
@@ -313,9 +350,10 @@ binding.save.setOnClickListener {
         val alertDialog = d.create()
         alertDialog.show()
     }
+
     private fun editTextPickerC(
-        t1: String, t2: String,t3: String, b1: EditText, min: Double,
-        max: Double,minText: String,maxText:String
+        t1: String, t2: String, t3: String, b1: EditText, min: Double,
+        max: Double, minText: String, maxText: String
     ) {
         var string = ""
         val d = AlertDialog.Builder(context)
@@ -332,7 +370,7 @@ binding.save.setOnClickListener {
         mEditText.maxEms = 6
         mEditText.addTextChangedListener(AppTextWatcher {
             string = mEditText.text.toString()
-            if(string !="") {
+            if (string != "") {
                 if (string.toDouble() < min || string.toDouble() != 0.0) {
                     mEditText2.error = minText
                     enabled = false
@@ -364,7 +402,13 @@ binding.save.setOnClickListener {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun editTextPicker(t1: String, t2: String, curs1: Double, curs2: Double, curs3: Double,  ) {
+    private fun editTextPicker(
+        t1: String,
+        t2: String,
+        curs1: Double,
+        curs2: Double,
+        curs3: Double,
+    ) {
         val d = AlertDialog.Builder(context)
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.update_exchange_dialog, null)
@@ -377,9 +421,9 @@ binding.save.setOnClickListener {
         val textInput2 = dialogView.findViewById<EditText>(R.id.text_input2)
         val textInput3 = dialogView.findViewById<EditText>(R.id.text_input3)
 
-            textInput.setText("$curs1")
-            textInput2.setText("$curs2")
-            textInput3.setText("$curs3")
+        textInput.setText("$curs1")
+        textInput2.setText("$curs2")
+        textInput3.setText("$curs3")
 
 
         d.setPositiveButton("Сохранить") { dialogInterface, i ->
@@ -388,15 +432,15 @@ binding.save.setOnClickListener {
                 usd.text = "$ - ${textInput2.editableText}"
                 euro.text = "Э - ${textInput3.editableText}"
 
-                if (textInput.editableText.toString()!="") {
+                if (textInput.editableText.toString() != "") {
                     params.yen = textInput.editableText.toString().toDouble()
                 }
-                if (textInput2.editableText.toString()!="") {
+                if (textInput2.editableText.toString() != "") {
                     params.usd = textInput2.editableText.toString().toDouble()
                 }
-                    if (textInput3.editableText.toString()!="") {
-                        params.euro = textInput3.editableText.toString().toDouble()
-                    }
+                if (textInput3.editableText.toString() != "") {
+                    params.euro = textInput3.editableText.toString().toDouble()
+                }
 
 
             }

@@ -36,7 +36,7 @@ class CalcClass : Calc {
     }
 
     override fun japanMoney(params: AllParametrs): Int {
-        params.FOB2 =fob2(params)
+        params.FOB2 = fob2(params)
         params.japanMoney = params.freightVL + params.FOB2 + params.carPrice
         return params.japanMoney
     }
@@ -44,12 +44,13 @@ class CalcClass : Calc {
     override fun rusMoney(params: AllParametrs): Int {
         params.brokerageServicesRegistration = brokerageServicesRegistration(params)
         params.customsFee = customsFee(params).fee
-        var u =  params.customsFee + params. brokerageServicesRegistration + params.addServices + params.deliveryСity
+        var u =
+            params.customsFee + params.brokerageServicesRegistration + params.addServices + params.deliveryСity
 
 
 
-        params.rusMoney =  (floor(u*1)/1).toInt()
-            //(params.finalPrice - params.japanMoney* params.yen - params.japanMoney * params.yen * params.banksСommission / 100).toInt()
+        params.rusMoney = (floor(u * 1) / 1).toInt()
+        //(params.finalPrice - params.japanMoney* params.yen - params.japanMoney * params.yen * params.banksСommission / 100).toInt()
         return params.rusMoney
     }
 
@@ -67,85 +68,86 @@ class CalcClass : Calc {
         var price = params.carPrice.toDouble() * params.yen / params.euro
         params.customsFee = (params.util + params.customsClearance + customsFeeFun(
             params.dateManufact,
-            (floor (price*10)/10).toInt(),
+            (floor(price * 10) / 10).toInt(),
             params.engineCapacity
-        ).fee * (floor(params.euro*10)/10))
+        ).fee * (floor(params.euro * 10) / 10))
         var text = customsFeeFun(
             params.dateManufact,
-            (floor (price*1)/1).toInt(),
+            (floor(price * 1) / 1).toInt(),
             params.engineCapacity
         ).text
-        return ForMyFee(text,params.customsFee)
+        return ForMyFee(text, params.customsFee)
     }
 
     override fun finalPrice(params: AllParametrs): Int {
 
 
         params.japanMoney = japanMoney(params)
-        var mm = params.japanMoney*params.yen+ params.japanMoney*params.yen*params.banksСommission/100
+        var mm =
+            params.japanMoney * params.yen + params.japanMoney * params.yen * params.banksСommission / 100
         params.rusMoney = rusMoney(params)
 
-        Log.d("dcfdvdfvdfvdf", "${(floor(mm*10)/10)}")
+        Log.d("dcfdvdfvdfvdf", "${(floor(mm * 10) / 10)}")
 
-        params.finalPrice = params.rusMoney + (floor(mm*10)/10).toInt()
+        params.finalPrice = params.rusMoney + (floor(mm * 10) / 10).toInt()
         return params.finalPrice
     }
 
-fun defoarams():AllParametrs{
-    return AllParametrs(
-        1,
-        2021,
-        660,
-        730000,
-        60000,
-        60000,
-        0.0,
-        0,
-        0,
-        0,
-        0.0,
-        20000,
-        0,
-        0,
-        0,
-        0,
-        60000,
-        0,
-        0,
-        0,
-        0,
-        5200,
-        3100,
-        20000,
-        30000,
-        5000,
-        0,
-        10000,
-        0,
-        0,
-        25000,
-        100.0,
-        90.0,
-        0.6
-    )
-}
-    fun jj(params: AllParametrs):AllParametrs{
-       params.customsClearance =  customsClearance(params)
+    fun defoarams(): AllParametrs {
+        return AllParametrs(
+            1,
+            2021,
+            660,
+            730000,
+            60000,
+            60000,
+            0.0,
+            0,
+            0,
+            0,
+            0.0,
+            20000,
+            0,
+            0,
+            0,
+            0,
+            60000,
+            0,
+            0,
+            0,
+            0,
+            5200,
+            3100,
+            20000,
+            30000,
+            5000,
+            0,
+            10000,
+            0,
+            0,
+            25000,
+            100.0,
+            90.0,
+            0.6
+        )
+    }
+
+    fun jj(params: AllParametrs): AllParametrs {
+        params.customsClearance = customsClearance(params)
         params.util = util(params)
-        params.FOB2 =   fob2(params)
-        params.japanMoney =    japanMoney(params)
-        params.rusMoney  =   rusMoney(params)
-        params.brokerageServicesRegistration  =  brokerageServicesRegistration(params)
-        params.customsFee =   customsFee(params).fee
-        params.finalPrice  = finalPrice(params)
+        params.FOB2 = fob2(params)
+        params.japanMoney = japanMoney(params)
+        params.rusMoney = rusMoney(params)
+        params.brokerageServicesRegistration = brokerageServicesRegistration(params)
+        params.customsFee = customsFee(params).fee
+        params.finalPrice = finalPrice(params)
 
         return params
     }
 
 
-
     private fun customsFeeFun(year: Int, price: Int, value: Int): ForMyFee {
-       var myFee = ForMyFee("",0.0)
+        var myFee = ForMyFee("", 0.0)
         val sdf = SimpleDateFormat("yyyy")
         val currentDate = sdf.format(Date()).toInt()
         myFee = when (currentDate - year) {
@@ -163,8 +165,6 @@ fun defoarams():AllParametrs{
         }
         return myFee
     }
-
-
 
 
     private fun lastPriceOlderCar(value: Int): ForMyFee {
@@ -201,7 +201,7 @@ fun defoarams():AllParametrs{
                 text = "ставка 5.7€ за 1 куб.см"
             }
         }
-        return ForMyFee(text,cf)
+        return ForMyFee(text, cf)
     }
 
 
@@ -239,7 +239,7 @@ fun defoarams():AllParametrs{
                 text = "ставка 3.6€ за 1 куб.см"
             }
         }
-        return ForMyFee(text,cf)
+        return ForMyFee(text, cf)
     }
 
 
@@ -255,11 +255,12 @@ fun defoarams():AllParametrs{
             cf = coef * value
             text = "ставка $coef€ за 1 куб.см"
         }
-        return ForMyFee(text,cf)
+        return ForMyFee(text, cf)
     }
+
     private fun lastPrice(price: Int, value: Int): ForMyFee {
         var cf = 0.0
-        var text=""
+        var text = ""
         when (price) {
             in 0..8500 -> {
                 cf = getlastCustomFee(price, value, 54, 2.5).fee
@@ -291,19 +292,12 @@ fun defoarams():AllParametrs{
                 text = getlastCustomFee(price, value, 54, 2.5).text
             }
         }
-        return ForMyFee(text,cf)
-
+        return ForMyFee(text, cf)
     }
-
-
-
-
 }
 
 class ForMyFee(
-    val text:String,
-    val fee:Double
-){
-
-
+    val text: String,
+    val fee: Double
+) {
 }

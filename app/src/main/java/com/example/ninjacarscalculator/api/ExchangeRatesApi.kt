@@ -14,7 +14,7 @@ interface ExchangeRatesApi {
     suspend fun exchangeRates(): Response<ExchangeRates>
 
 
-    companion object{
+    companion object {
         val retrofit by lazy {
             Retrofit
                 .Builder()

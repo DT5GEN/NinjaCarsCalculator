@@ -24,7 +24,4 @@ class ViewModelFactoryM(context: Activity): ViewModelProvider.Factory {
             repository, teamDao,
         ) as T
     }
-
-
-
 }

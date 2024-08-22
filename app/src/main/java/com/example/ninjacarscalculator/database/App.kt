@@ -3,8 +3,7 @@ package com.example.ninjacarscalculator.database
 import android.app.Application
 import androidx.room.Room
 
-//
-class App: Application() {
+class App : Application() {
 
     lateinit var db: AppDatabase
     override fun onCreate() {

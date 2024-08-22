@@ -59,7 +59,7 @@ class MainFragment : Fragment() {
     var saveAutoname: MutableList<Task> = mutableListOf()
     var customF2 = ""
     var customF = 0.0
-    var userData:UserData? = null
+    var userData: UserData? = null
     var value = 0
     var FOB2 = 0
     var name = "name"
@@ -107,7 +107,7 @@ class MainFragment : Fragment() {
             editor.putString(USER_ACCEPTED_NUMB, numb).apply()
             val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
             val currentDate = sdf.format(Date()).toString()
-            saveAutoname += Task(currentDate,"default_car", params)
+            saveAutoname += Task(currentDate, "default_car", params)
             user?.run {
                 val userData = UserData(
                     numb = numb,
@@ -141,13 +141,15 @@ class MainFragment : Fragment() {
         }
         binding.customsOefficient.setOnClickListener {
             toast.show()
-            binding.customsOefficient.startAnimation(animAlpha)}
+            binding.customsOefficient.startAnimation(animAlpha)
+        }
 //        binding.customsFee.setOnClickListener {
 //            toast.show()
 //            binding.customsFee.startAnimation(animAlpha)}
         binding.brokerageServicesRegistration.setOnClickListener {
             toast.show()
-            binding.brokerageServicesRegistration.startAnimation(animAlpha)}
+            binding.brokerageServicesRegistration.startAnimation(animAlpha)
+        }
         binding.customsOefficient.setOnClickListener {
             toast.show()
             binding.customsOefficient.startAnimation(animAlpha)
@@ -159,16 +161,16 @@ class MainFragment : Fragment() {
 
 
 
-binding.history.setOnClickListener {
-    if(isOnline(requireContext())) {
-        findNavController().navigate(R.id.action_navigation_dashboard_to_navigation_notifications)
-    }else{
-        val text = "Проверте подключение к интернету"
-        val duration = Toast.LENGTH_SHORT
-        val toast = Toast.makeText(requireContext(), text, duration)
-        toast.show()
-    }
-    }
+        binding.history.setOnClickListener {
+            if (isOnline(requireContext())) {
+                findNavController().navigate(R.id.action_navigation_dashboard_to_navigation_notifications)
+            } else {
+                val text = "Проверте подключение к интернету"
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(requireContext(), text, duration)
+                toast.show()
+            }
+        }
         binding.settings.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_dashboard_to_settingsFragment)
         }
@@ -180,9 +182,9 @@ binding.history.setOnClickListener {
         viewModel.echangeRates.onEach {
 
             if (it != null) {
-                params.euro = floor("${it.Valute.EUR.Value}".toDouble()*100) /100
-                params.usd = floor("${it.Valute.USD.Value}".toDouble()*100) /100
-                params.yen = floor("${it.Valute.JPY.Value.div(100)}".toDouble()*100) /100
+                params.euro = floor("${it.Valute.EUR.Value}".toDouble() * 100) / 100
+                params.usd = floor("${it.Valute.USD.Value}".toDouble() * 100) / 100
+                params.yen = floor("${it.Valute.JPY.Value.div(100)}".toDouble() * 100) / 100
             }
 
         }.launchIn(viewLifecycleOwner.lifecycleScope)
@@ -190,36 +192,36 @@ binding.history.setOnClickListener {
             if (it.isNotEmpty()) {
                 params = it.firstOrNull()!!
                 params.finalPrice = CalcClass().finalPrice(params)
-                if(date1 == "true"){
+                if (date1 == "true") {
                     val mon = prefs.getString(USER_ACCEPTED_MON, "1")
                     binding.datePicker.setText("${mon}/${params.dateManufact}")
                 }
-                if(engine1 == "true"){
+                if (engine1 == "true") {
                     binding.engineCapacity.setText(params.engineCapacity.toString())
                 }
-                if(price1 == "true"){
+                if (price1 == "true") {
                     binding.auctionPrice.setText(params.carPrice.toString())
                 }
-                if (saved == "true"){
+                if (saved == "true") {
                     val mon = prefs.getString(USER_ACCEPTED_MON, "1")
 //                    params.finalPrice = CalcClass().finalPrice(params)
                     binding.datePicker.setText("${mon}/${params.dateManufact}")
                     binding.engineCapacity.setText(params.engineCapacity.toString())
                     binding.auctionPrice.setText(params.carPrice.toString())
-                 //   Log.d("fob", params.FOB.toString())
-                   // binding.fob.setText(params.FOB.toString() )
+                    //   Log.d("fob", params.FOB.toString())
+                    // binding.fob.setText(params.FOB.toString() )
                     binding.customsFee.setText(params.myFee.toString())
                     binding.brokerageServicesRegistration.setText(params.brokerageServicesRegistration.toString())
                     binding.customsOefficient.setText(params.customsСoefficient.toString())
-                    binding.fraht.setText(params.freightVL.toString() )
+                    binding.fraht.setText(params.freightVL.toString())
                     binding.customsFee.setText(params.customsFee.toString())
                     binding.brokerageServicesRegistration.setText(params.brokerageServicesRegistration.toString())
                     binding.customsOefficient.setText(CalcClass().customsFee(params).text)
                     binding.finalPrice.setText("${params.finalPrice}")
                 }
                 Log.d("fob", params.FOB.toString())
-                binding.fob.setText(params.FOB.toString() )
-                binding.fraht.setText(params.freightVL.toString() )
+                binding.fob.setText(params.FOB.toString())
+                binding.fraht.setText(params.freightVL.toString())
 
 
             }
@@ -231,12 +233,12 @@ binding.history.setOnClickListener {
 
             MonthYearPickerDialog(date).apply {
                 setListener { view, year, month, dayOfMonth ->
-                    binding.datePicker.setText("${month+1}/$year")
-                    editor.putString(USER_ACCEPTED_MON, "${month+1}").apply()
+                    binding.datePicker.setText("${month + 1}/$year")
+                    editor.putString(USER_ACCEPTED_MON, "${month + 1}").apply()
                     params.dateManufact = year
                     Toast.makeText(
                         requireContext(),
-                        "Выбранная дата: ${month+1}/$year",
+                        "Выбранная дата: ${month + 1}/$year",
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -301,17 +303,17 @@ binding.history.setOnClickListener {
 
 
             editor.putString(USER_ACCEPTED_SAVED, "true").apply()
-             if (binding.datePicker.editableText.toString() == ""){
-                binding.datePicker.error= ""
-                 save = false
-            }else{
-                 binding.datePicker.error = null
-
-             }
-            if (binding.engineCapacity.editableText.toString() == ""){
-                binding.engineCapacity.error= ""
+            if (binding.datePicker.editableText.toString() == "") {
+                binding.datePicker.error = ""
                 save = false
-            }else{
+            } else {
+                binding.datePicker.error = null
+
+            }
+            if (binding.engineCapacity.editableText.toString() == "") {
+                binding.engineCapacity.error = ""
+                save = false
+            } else {
                 binding.engineCapacity.error = null
 
             }
@@ -322,27 +324,27 @@ binding.history.setOnClickListener {
                 binding.fraht.error = null
                 save = true
             } else {
-                binding.fraht.error= ""
+                binding.fraht.error = ""
                 save = false
             }
             if (binding.fob.editableText.toString() != "") {
                 params.FOB = binding.fob.editableText.toString().toInt()
                 save = true
                 binding.fob.error = null
-            }else {
-                binding.fob.error= ""
+            } else {
+                binding.fob.error = ""
                 save = false
             }
             if (binding.auctionPrice.editableText.toString() != "") {
                 params.carPrice = binding.auctionPrice.editableText.toString().toInt()
                 save = true
                 binding.auctionPrice.error = null
-            }else {
-                binding.auctionPrice.error= ""
+            } else {
+                binding.auctionPrice.error = ""
                 save = false
             }
 
-            if ( save) {
+            if (save) {
                 params.finalPrice = CalcClass().finalPrice(params)
                 binding.finalPrice.setText("${params.finalPrice}")
                 binding.customsFee.setText(params.customsFee.toString())
@@ -369,7 +371,7 @@ binding.history.setOnClickListener {
         }
 
         binding.save.setOnClickListener {
-            if(isOnline(requireContext())) {
+            if (isOnline(requireContext())) {
                 if (save || saved == "true") {
                     if (mAuth.currentUser == null) {
                         editor.putString(USER_ACCEPTED_SAVED, "true").apply()
@@ -386,7 +388,7 @@ binding.history.setOnClickListener {
                         editAutoNamePicker()
                     }
                 }
-            }else{
+            } else {
                 val text = "Проверте подключение к интернету"
                 val duration = Toast.LENGTH_SHORT
                 val toast = Toast.makeText(requireContext(), text, duration)
@@ -395,13 +397,16 @@ binding.history.setOnClickListener {
 
         }
     }
+
     fun isOnline(context: Context): Boolean {
-        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
 
         return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
     }
+
     private fun addUserChangeListener() {
         try {
             user?.run {
@@ -414,7 +419,7 @@ binding.history.setOnClickListener {
                     saveAutoname = userData!!.saveAutoname
                 }
             }
-        }catch (_: NumberFormatException) {
+        } catch (_: NumberFormatException) {
             IllegalArgumentException("")
         }
     }
@@ -472,7 +477,7 @@ binding.history.setOnClickListener {
                         numb = numb,
                         name = name,
                         saveAutoname = saveAutoname
-                            )
+                    )
                     Log.d("this", "${userData!!.numb} - ${userData!!.saveAutoname}")
 
                     userIdReference.setValue(userData)
@@ -541,7 +546,7 @@ binding.history.setOnClickListener {
         d.setNegativeButton("Отменить") { dialogInterface, i -> }
         val alertDialog = d.create()
         alertDialog.show()
-//return mEditText.editableText.toString()
+        //return mEditText.editableText.toString()
     }
 
     private fun numberPickerCustom(): Int {
