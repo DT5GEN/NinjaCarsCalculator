@@ -22,7 +22,7 @@ This application helps users calculate the total cost of purchasing a car at auc
 - Database: Room
 - UI Components: RecyclerView, ConstraintLayout
 - Asynchronous Processing: Kotlin Coroutines
-- Dependency Injection: Dagger/Hilt
+- Firebase
 - LiveData and ViewModel: For responsive UI updates
 
 ---
